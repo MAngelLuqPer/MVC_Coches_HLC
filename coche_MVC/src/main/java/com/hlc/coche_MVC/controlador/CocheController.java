@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.example.crud.entidad.Producto;
-import com.example.crud.servicio.ProductoServicio;
 import com.hlc.coche_MVC.modelo.Coche;
 import com.hlc.coche_MVC.servicio.CocheServicio;
 
@@ -28,22 +26,22 @@ public class CocheController {
 	        return "coche-form";
 	    }
 
-	    @GetMapping("/producto/editar/{id}")
+	    @GetMapping("/coche/editar/{id}")
 	    public String mostrarFormularioDeEditarProducto(@PathVariable Integer id, Model model) {
 	        Coche coche = cocheServicio.obtenerCochePorId(id);
-	        model.addAttribute("producto", producto);
-	        return "producto-form"; 
+	        model.addAttribute("coche", coche);
+	        return "coche-form"; 
 	    }
 
 	    @PostMapping("/producto")
-	    public String guardarProducto(@ModelAttribute Producto producto) {
-	        productoServicio.guardarProducto(producto);
+	    public String guardarCoche(@ModelAttribute Coche coche) {
+	        cocheServicio.guardarCoche(coche);
 	        return "redirect:/";
 	    }
 
 	    @GetMapping("/producto/eliminar/{id}")
-	    public String eliminarProducto(@PathVariable Long id) {
-	        productoServicio.eliminarProducto(id);
+	    public String eliminarCoche(@PathVariable Integer id) {
+	        cocheServicio.eliminarCochePorId(id);
 	        return "redirect:/";
 	    }
 }
