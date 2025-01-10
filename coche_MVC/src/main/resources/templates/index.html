@@ -17,14 +17,14 @@
             </tr>
         </thead>
         <tbody>
-            <tr th:each="coche : ${productos}">
+            <tr th:each="coche : ${coches}">
                 <td th:text="${coche.id}"></td>
                 <td th:text="${coche.marca}"></td>
                 <td th:text="${coche.matricula}"></td>
                 <td th:text="${coche.color}"></td>
                 <td>
                     <a th:href="@{'/coche/editar/' + ${coche.id}}">Editar</a> |
-                    <a th:href="@{'/producto/eliminar/' + ${coche.id}}" onclick="return confirm('¿Estás seguro de eliminar este coche?');">Eliminar</a>
+                    <a th:href="@{'/coche/eliminar/' + ${coche.id}}" onclick="return confirm('¿Estás seguro de eliminar este coche?');">Eliminar</a>
                 </td>
             </tr>
         </tbody>

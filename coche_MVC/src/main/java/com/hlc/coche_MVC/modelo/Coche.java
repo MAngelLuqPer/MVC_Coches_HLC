@@ -14,7 +14,20 @@ public class Coche {
     private String matricula;
     private String color;
 
-    // Getters y Setters
+    
+    
+    public Coche(String marca, String matricula, String color) {
+		super();
+		this.marca = marca;
+		this.matricula = matricula;
+		this.color = color;
+	}
+    
+    public Coche() {
+    	super();
+    }
+
+	// Getters y Setters
     public int getId() {
         return id;
     }

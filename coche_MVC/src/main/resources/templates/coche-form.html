@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1 th:text="${coche.id} != null ? 'Editar Coche' : 'Añadir Nuevo Coche'"></h1>
-    <form th:action="@{/producto}" th:object="${coche}" method="post">
+    <form th:action="@{/coche}" th:object="${coche}" method="post">
         <input type="hidden" th:field="*{id}" />
         <div>
             <label for="marca">Marca:</label>

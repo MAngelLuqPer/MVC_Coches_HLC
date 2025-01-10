@@ -16,31 +16,31 @@ public class CocheController {
 	 CocheServicio cocheServicio;
 	 @GetMapping("/")
 	    public String listarCoches(Model model) {
-	        model.addAttribute("productos", cocheServicio.obtenerTodosLosCoches());
+	        model.addAttribute("coches", cocheServicio.obtenerTodosLosCoches());
 	        return "index";
 	    }
 
 	    @GetMapping("/coche/nuevo")
-	    public String mostrarFormularioDeNuevoProducto(Model model) {
+	    public String mostrarFormularioDeNuevoCoche(Model model) {
 	        Coche coche = new Coche();
 	        model.addAttribute("coche", coche);
 	        return "coche-form";
 	    }
 
 	    @GetMapping("/coche/editar/{id}")
-	    public String mostrarFormularioDeEditarProducto(@PathVariable Integer id, Model model) {
+	    public String mostrarFormularioDeEditarCoche(@PathVariable Integer id, Model model) {
 	        Coche coche = cocheServicio.obtenerCochePorId(id);
 	        model.addAttribute("coche", coche);
 	        return "coche-form"; 
 	    }
 
-	    @PostMapping("/producto")
+	    @PostMapping("/coche")
 	    public String guardarCoche(@ModelAttribute Coche coche) {
 	        cocheServicio.guardarCoche(coche);
 	        return "redirect:/";
 	    }
 
-	    @GetMapping("/producto/eliminar/{id}")
+	    @GetMapping("/coche/eliminar/{id}")
 	    public String eliminarCoche(@PathVariable Integer id) {
 	        cocheServicio.eliminarCochePorId(id);
 	        return "redirect:/";
